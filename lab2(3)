@@ -1,0 +1,9 @@
+Для наивного алгоритма
+g++ -O3 -march=native naive_matrix_mult.cpp -o naive_mult
+./naive_mult
+Для BLAS реализации (Intel MKL):
+g++ -O3 -march=native -DMKL_ILP64 -I${MKLROOT}/include blas_matrix_mult.cpp -L${MKLROOT}/lib/intel64 -lmkl_rt -o blas_mult
+./blas_mult
+Для оптимизированного алгоритма:
+g++ -O3 -march=native -fopenmp optimized_matrix_mult.cpp -o optimized_mult
+./optimized_mult
